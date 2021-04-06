@@ -443,6 +443,8 @@ class Oblock {
                 element.moveDown(otherBlocks)
             };
         });
+
+        return !goDown
     }
 
     goLeftRight(goLeft, otherBlocks) {
@@ -498,11 +500,12 @@ class Oblock {
     }
 }
 
-
-var number = 0;
-number = Math.floor(Math.random() * 3)
 var blockTypes = [Tblock, Iblock, Oblock];
-var currentBlock = new blockTypes[number](10, 0, ctx);
+
+var number;
+var currentBlock;
+changeBlock()
+
 var Deadblocks = []
 var underLine = false;
 var shouldGoDown = true;
@@ -524,7 +527,7 @@ function blockMoveDown() {
 }
 
 function changeBlock() {
-    number = Math.floor(Math.random() * 3)
+    number = Math.floor(Math.random() * blockTypes.length)
     currentBlock = new blockTypes[number](10, 0, ctx)
 }
 
